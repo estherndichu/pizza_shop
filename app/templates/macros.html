@@ -1,0 +1,16 @@
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+{% macro displayPizzaList(all_pizzas) %}
+
+    {% for pizza in all_pizzas %}
+        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 pizza-card">
+            <img src="{{ pizza.image_path }}" alt="{{ pizza.pizza_title }} poster" class="img-responsive">
+            <li class="text-center">
+                <a href="/movie/{{movie.id}}">
+                    {{ pizza.pizza_title|truncate(10)}}</a>
+            </li>
+        </div>
+
+    {% endfor %}
+
+{% endmacro %}
