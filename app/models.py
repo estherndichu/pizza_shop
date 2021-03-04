@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from . import db
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
@@ -49,3 +50,5 @@ class Pizza(db.Model):
     image_path = db.Column(db.String)
     description = db.Column(db.String)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+=======
+>>>>>>> views
