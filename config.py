@@ -27,7 +27,6 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-<<<<<<< HEAD
  
     # simple mde  configurations
     SIMPLEMDE_JS_IIFE = True
@@ -38,17 +37,6 @@ class Config:
     def init_app(app):
         pass
 
-=======
-    SUBJECT_PREFIX = 'Watchlist'
-    SENDER_EMAIL = 'itskuijenga@gmail.com'    
-
-# simple mde  configurations
-    SIMPLEMDE_JS_IIFE = True
-    SIMPLEMDE_USE_CDN = True
-    @staticmethod
-    def init_app(app):
-        pass    
->>>>>>> views
 
 class ProdConfig(Config):
     pass
