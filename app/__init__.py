@@ -11,22 +11,32 @@ login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
 
+<<<<<<< HEAD
 
+=======
+simple = SimpleMDE()
+>>>>>>> origin/views
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
 photos = UploadSet('photos',IMAGES)
 mail = Mail()
+<<<<<<< HEAD
 simple = SimpleMDE()
+=======
+>>>>>>> origin/views
 
 def create_app(config_name):
 
     app = Flask(__name__)
 
+<<<<<<< HEAD
     # configure UploadSet
     app.config['UPLOADED_PHOTOS_DEST'] = 'var/uploads'
     configure_uploads(app,photos)
 
+=======
+>>>>>>> origin/views
     # Creating the app configurations
 
     app.config.from_object(config_options[config_name])
@@ -39,6 +49,10 @@ def create_app(config_name):
     mail.init_app(app)
     simple.init_app(app)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/views
     # Registering the blueprint
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
@@ -47,6 +61,7 @@ def create_app(config_name):
     app.register_blueprint(auth_blueprint,url_prefix = '/auth')
 
     # setting config
+<<<<<<< HEAD
     #from .requests import configure_request
     #configure_request(app)
 
@@ -54,3 +69,16 @@ def create_app(config_name):
 
 
     return app
+=======
+    from .requests import configure_request
+    configure_request(app)
+
+
+
+    # configure UploadSet
+    configure_uploads(app,photos)
+
+
+
+    return app
+>>>>>>> origin/views

@@ -1,4 +1,5 @@
 from flask import Blueprint
+<<<<<<< HEAD
 main = Blueprint('main',__name__)
 from . import views
 
@@ -9,3 +10,9 @@ from flask import send_from_directory
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                           'favicon.ico',mimetype='image/vnd.microsoft.icon')
+=======
+
+main = Blueprint('main',__name__)
+
+from . import views, errors
+>>>>>>> origin/views
