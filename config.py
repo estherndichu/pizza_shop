@@ -2,11 +2,11 @@ import os
 
 class Config:
 
-    MOVIE_API_BASE_URL ='https://api.themoviedb.org/3/movie/{}?api_key={}'
-    MOVIE_API_KEY = os.environ.get('MOVIE_API_KEY')
-    SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SECRET_KEY = 'Beau'
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pizza'        
+
 
     # simple mde  configurations
 
@@ -15,9 +15,7 @@ class Config:
     MAIL_PORT = 587
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
-    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-    SUBJECT_PREFIX = 'Watchlist'
-    SENDER_EMAIL = 'itskuijenga@gmail.com'    
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")  
 
 # simple mde  configurations
     SIMPLEMDE_JS_IIFE = True
@@ -27,14 +25,15 @@ class Config:
         pass    
 
 class ProdConfig(Config):
-    pass
-
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 class DevConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/watchlist'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pizza'        
+
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/watchlist_test'        
+    pass
 
 config_options = {
 'development':DevConfig,

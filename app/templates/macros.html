@@ -1,0 +1,63 @@
+{% macro displayPizza(pizza) %}
+
+{% for pizza in pizza %}
+<div class="col-sm-4" id="1">
+  <header class="w3-container w3-blue">
+    <h1>{{pizza.name}}
+    </h1>
+  </header>
+  <img src="/static/1.jpg" width="400px" height="400px" alt="Related Book 1">
+  <p>
+   Small - {{pizza.price_small}}
+  </p>
+  <p>
+    Large - {{pizza.price_large}}
+  </p>
+  <footer class="w3-container w3-blue">
+    <h5><a href="{{url_for('main.order')}}">ORDER NOW</a></h5>
+  </footer>
+</div>
+{% endfor %}
+
+{% endmacro %}
+
+{% macro displayListOrders(orders) %}
+
+{% for orders in orders %}
+<div class="row">
+  <div class="col-md-3">
+    <h2>
+      TOPPINGS
+    </h2>
+    <ol>
+      {{orders.toppings}}
+    </ol>
+  </div>
+  <div class="col-md-3">
+    <h2>
+      SIZE
+    </h2>
+    <ol>
+      {{orders.size}}
+    </ol>
+  </div>
+  <div class="col-md-3">
+    <h2>
+      NO OF PIZZAS
+    </h2>
+    <ol>
+      {{orders.no_of_pizzas}}
+    </ol>
+  </div>
+  <div class="col-md-3">
+    <h2>
+      PRICE
+    </h2>
+    <ol>
+      {{orders.price}}
+    </ol>
+  </div>
+</div>
+{% endfor %}
+
+{% endmacro %}
