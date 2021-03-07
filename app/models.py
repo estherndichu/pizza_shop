@@ -56,6 +56,7 @@ class Pizza(db.Model):
     size = db.Column(db.String)
     price_large = db.Column(db.Integer)
     price_small = db.Column(db.Integer)
+    orders = db.relationship('Order',backref = 'pizza',lazy = "dynamic")
 
     def save_pizza(self):
         db.session.add(self)
@@ -73,6 +74,8 @@ class Order(db.Model):
     toppings = db.Column(db.String(255),index = True)
     no_of_pizzas = db.Column(db.Integer,index = True)
     users = db.relationship('User',backref = 'order',lazy="dynamic")
+    pizza_id = db.Column(db.Integer,db.ForeignKey('pizzas.id'))
+
 
     def save_order(self):
         db.session.add(self)

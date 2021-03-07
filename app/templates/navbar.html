@@ -16,6 +16,9 @@
         <li class="nav-item">
           <a class="nav-link" href="{{url_for('main.order')}}">ORDER</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('main.cart')}}">CART</a>
+        </li>        
         {% if current_user.is_authenticated %}
         <li class="nav-item">
           <a class="nav-link" href="{{url_for('auth.logout')}}">SIGN OUT</a>
